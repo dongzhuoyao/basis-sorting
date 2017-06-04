@@ -1,0 +1,1 @@
+matlab -nodisplay -r "run_lena;exit" 2>&1 | tee run_lena.log
