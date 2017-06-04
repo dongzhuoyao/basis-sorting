@@ -19,15 +19,15 @@ for i =1:patch_num
     crop = image_gray(randi(n-patch_size+1)+(0:patch_size-1),randi(m-patch_size+1)+(0:patch_size-1));
     crop_list(:,i) = reshape(crop,patch_size*patch_size,1);
 end
-%{
+
 data = crop_list;
-[Dictionary,output] = KSVD(data,param);
+[dic,output] = KSVD(data,param);
 save('KSVD_result');
 disp('K-SVD complete,start sorting..');
-%}
 
-ksvd_result = load('KSVD_result_1000.mat');
-dic = ksvd_result.Dictionary;
+
+%ksvd_result = load('KSVD_result_1000.mat');
+%dic = ksvd_result.Dictionary;
 epsilon = 1e-5;
 s = zeros(256,1);
 final_pi_U = zeros(256,1);
